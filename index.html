@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Labelling Cans on a Production Line</title>
+
+		<meta name="description" content="Automating Metadata Creation">
+		<meta name="author" content="Jo Cook, Astun Technology">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background-image="./images/cans.jpg" alt="cans" class="full" data-background-size="cover">
+					<h2 class="box">Labelling Cans on a Production Line</h2>
+					<h3 class="box">Automating Metadata Creation</h3>
+					<p class="box">Jo Cook, Astun Technology</p>
+					</p>
+					<p class="attribution" style="color:white">Debora Cartagena Pixnio, CC-0</p>
+				</section>
+
+				<section  data-background-image="./images/confused.jpg" alt="cans" class="full" data-background-size="cover">
+					<p  class="box-left">Metadata is important, but in large organisations data discovery, metadata creation, and management can be expensive and time-consuming</p>
+					<p class="attribution" style="color:white">Pigsels, CC-0</p>
+				</section>
+
+				<section data-background-image="./images/juggling.jpg" alt="cans" class="full" data-background-size="cover">
+					<p class="box-right">Metadata is also complex, and often data owners have neither the time or the training to complete records in a traditional catalog, or to keep them up to date</p>
+					<p class="attribution" style="color:white">Michael Jastremski, openphoto.net</p>
+					<aside class="notes">Simply giving all data owners editing access to a metadata catalog might be problematic</aside>
+				</section>
+
+				<section data-background-image="./images/automate.png" alt="cans" class="full" data-background-size="cover">
+					<span class="box-right">
+					<p>Luckily we can automate much of the discovery and metadata creation processes</p>
+					<p>One open source option for this is the Metadata Crawler plugin for Talend Open Studio (aka Crawler)</p>
+				</span>
+				<p class="attribution">Sam Storino</p>
+				</section>
+
+
+				<section data-background-image="./images/files.jpg" alt="files" class="full" data-background-size="cover">>
+					<p class="box-left">Crawler looks for spatial data in file systems and databases. For each data source it finds, it derives as much of the metadata as it can</p>
+					<p class="attribution">wikimedia.org CC-BY-3.0</p>
+					<aside class="notes">Vector and Raster data. Programmatic: Title, extent, coordinate reference system, last update date, URI, placeholder: Abstract, contact details, keywords, lineage, update frequency, constraints etc</aside>
+				</section>
+
+				<section>
+					<p>Crawler creates a metadata record for each data source it discovers, and a Feature Catalog record for vector data sources.</p>
+					<p>It can insert these records into any Metadata Catalog with a CSW-T (Transactional CSW) endpoint.</p>
+					<aside class="notes">Not just Geonetwork. Feature Catalog for vector attributes. Can update existing records</aside>
+				</section>
+
+				<section data-background-image="./images/excited-puppy.jpg" alt="excited" class="full" data-background-size="cover">
+					<p class="box-left">For UK metadata, we've modified Crawler so that it outputs metadata in Gemini 2.3 format (and ISO19110 for the Feature Catalog)</p>
+					<p class="attribution" style="color:grey">Flickr: Eric Danley CC-BY-2.0</p>
+				</section>
+
+				<section>
+					<img src="./images/crawler_step_one.png" alt="Crawler Step One"/>
+				</section>
+
+				<section data-background-image="./images/dog_pc.jpg" alt="no human hands" class="full" data-background-size="cover">
+					<p class="box-left">At this stage in proceedings, we have a record for each data source, with some programmatic elements, some placeholder elements, and a linked feature catalog record describing the attributes. Human hands have yet to touch the metadata!</p>
+					<p class="attribution">IMGUR: goldenretrieverbailey</p>
+				</section>
+
+				<section>
+					<img src="./images/placeholder_record.png" alt="Placeholders"/>
+				</section>
+
+
+				<section>
+					<p>We generate excel spreadsheets with a row per record for data owners to complete the manual fields.</p>
+					<p>This may seem clumsy but excel is well-known and used. Data owners can copy and paste in bulk to populate "their" records quickly and easily.</p>
+					<aside class="notes">Metadata Crawler derives titles using a set of rules (for databases it uses the form <code>Database.Schema.Tablename</code>) so we can use the same when auto-generating the rows in the excel spreadsheet to ensure a match. To ensure we get quality results from this process, we can use controlled text fields for elements where that is appropriate.</aside>
+				</section>
+
+				<section>
+					<img src="./images/template.png" alt="Excel template"/>
+				</section>
+
+				<section>
+					<p>We can then use the GeoNetwork API inside a python script to iterate through the csv and update the metadata in the catalog with the unique values</p>
+				</section>
+
+				<section>
+					<img src="./images/crawler_step_two.png" alt="Crawler Step Two"/>
+				</section>
+
+				<section>
+					<p>For extra geek points, and to automate the workflow even more, we can allow people to send the spreadsheet as a csv to an email address associated with an S3 bucket</p>
+					<p>With another bit of python we can extract and validate the csv, then ensure it's ready for the previous script to process</p>
+				</section>
+
+				<section>
+					<img src="./images/crawler_step_three.png" alt="Crawler Step Three"/>
+				</section>
+
+				<section>
+					<p>Using the Talend gui you can configure Crawler to enable/disable parts of the workflow</p>
+					<img src="./images/talend_config.png" alt="Talend Config" width="600"/>
+				</section>
+
+				<section>
+					<p>You can also configure the database, file location, metadata catalog and so on:</p>
+					<img src="./images/talend_contexts.png" alt="Talend Contexts" width="600"/>
+				</section>
+
+				<section>
+					<p>Then Crawler can be exported as a batch file for windows or a shell script for linux, to run as an unattended scheduled task</p>
+					<p>You can override the config at the command line, for example to crawl a different database or use a different metadata catalog</p>
+					<aside class="notes">So while it looks complex, it's a set up once, configure and use many times kind of thing</aside>
+				</section>
+
+				<section data-background-image="./images/engage_guide.jpg" alt="demo alert" class="full" data-background-size="cover">
+					<h3>Demo Alert (If time allows)!</h3>
+					<p class="attribution">Flickr: Bernard Duport CC-BY-SA-2.0</p>
+					<aside class="notes">1: empty geonetwork 2: run shell script 3: placeholders in geonetwork 4: run python 5: completed records</aside>
+				</section>
+
+				<section data-background-image="./images/fly.jpg" alt="fly" class="full" data-background-size="cover">
+					<h3 class="box">Zero to Hero:</h3>
+					<span class="box-right">
+					<p>With some initial setup and configuration we get a system that automatically discovers data sources and creates metadata, and allows data owners to keep them up to date by sending spreadsheets via email with little time-consuming management and editing</p>
+				</span>
+					<p class="attribution" style="color:white">US Airforce</p>
+				</section>
+
+				<section>
+					<h3>Where to find the components</h3>
+					<a target="_blank" href="https://www.talend.com/products/talend-open-studio/">www.talend.com/products/talend-open-studio/</a><br />
+					<a target="_blank" href="https://talend-spatial.github.io/">talend-spatial.github.io/</a><br />
+					<a target="_blank" href="https://github.com/talend-spatial/workspace-metadata-crawler">github.com/talend-spatial/workspace-metadata-crawler</a>
+				</section>
+
+				<section>
+					<h3>Thank You!</h3>
+					<p>Jo Cook, <a href="astuntechnology.com" target="_blank">Astun Technology</a></p>
+					<p><a href="mailto:jocook@astuntechnology.com?subject=Automating Metadata">jocook@astuntechnology.com</a></p>
+				</section>
+			
+
+		
+			</div>
+
+			<div class="fe-persistent-header">
+ 				<img src=".\images\AstunSmallLogo.png"/>
+			<p style="color:white">Labelling Cans on a Production Line</p>
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
