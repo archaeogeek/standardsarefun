@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Labelling Cans on a Production Line</title>
+		<title>Help Make Standards Fun and Useful!</title>
 
-		<meta name="description" content="Automating Metadata Creation">
-		<meta name="author" content="Jo Cook, Astun Technology">
+		<meta name="description" content="Help make standards fun and useful">
+		<meta name="author" content="Jo Cook, Data and Metadata Wrangler for hire">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="custom/astun.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -42,133 +43,88 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background-image="./images/cans.jpg" alt="cans" class="full" data-background-size="cover">
-					<h2 class="box">Labelling Cans on a Production Line</h2>
-					<h3 class="box">Automating Metadata Creation</h3>
-					<p class="box">Jo Cook, Astun Technology</p>
+				<section data-background-image="./images/alien.jpg" alt="cans" class="full" data-background-size="contain">
+					<h2 class="box" style="background-color:var(--astun-red);margin-top: 50px !important">Help Make Standards Fun and Useful!</h2>
+					<p class="box" style="background-color:var(--astun-teal);">Jo Cook, Data and Metadata Wrangler for hire</p>
 					</p>
-					<p class="attribution" style="color:white">Debora Cartagena Pixnio, CC-0</p>
+					<p class="attribution" style="color:white">imgflip</p>
 				</section>
 
-				<section  data-background-image="./images/confused.jpg" alt="cans" class="full" data-background-size="cover">
-					<p  class="box-left">Metadata is important, but in large organisations data discovery, metadata creation, and management can be expensive and time-consuming</p>
+				<section data-background-image="./images/ruler.jpg" alt="cans" class="full" data-background-size="full">
+					<h2 class="box" style="background-color:var(--astun-red);margin-top: 50px !important">Help Make Standards Fun and Useful!</h2>
+					<p class="box" style="background-color:var(--astun-teal);">Jo Cook, Data and Metadata Wrangler for hire</p>
+					</p>
+					<p class="attribution" style="color:white">pxhere, CC-0</p>
+				</section>
+
+				<section  data-background-image="./images/gemini.jpg" alt="cans" class="full" data-background-size="cover">
+					<h3>Why am I here?</h3>
+					<p  class="box-right">I represent the AGI Standards Working Group- we look after the UK Gemini metadata standard and sit on IST36, the committee for geospatial digital standards at the BSI</p>
 					<p class="attribution" style="color:white">Pigsels, CC-0</p>
 				</section>
 
 				<section data-background-image="./images/juggling.jpg" alt="cans" class="full" data-background-size="cover">
-					<p class="box-right">Metadata is also complex, and often data owners have neither the time or the training to complete records in a traditional catalog, or to keep them up to date</p>
+					<h3>What do we do?</h3>
+					<p class="box-right">We're responsible for making and looking after British standards related to GIS, and we collaborate with other bodies like OGC and GDS</p>
 					<p class="attribution" style="color:white">Michael Jastremski, openphoto.net</p>
-					<aside class="notes">Simply giving all data owners editing access to a metadata catalog might be problematic</aside>
+					<aside class="notes">BIM, Geographic Data, Data Quality, Metadata, Sensors, Classification Systems, Gridded Data etc etc</aside>
 				</section>
 
-				<section data-background-image="./images/automate.png" alt="cans" class="full" data-background-size="cover">
-					<span class="box-right">
-					<p>Luckily we can automate much of the discovery and metadata creation processes</p>
-					<p>One open source option for this is the Metadata Crawler plugin for Talend Open Studio (aka Crawler)</p>
-				</span>
-				<p class="attribution">Sam Storino</p>
+				<section data-background-image="./images/juggling.jpg" alt="cans" class="full" data-background-size="cover">
+					<h3>But what do we actually do?</h3>
+					<p class="box-right">We ensure that the written standard is high quality and unambiguous, implementable, and relevant</p>
+					<p class="attribution" style="color:white">Michael Jastremski, openphoto.net</p>
+					<aside class="notes">It's the last two that we need help with</aside>
 				</section>
 
-
-				<section data-background-image="./images/files.jpg" alt="files" class="full" data-background-size="cover">>
-					<p class="box-left">Crawler looks for spatial data in file systems and databases. For each data source it finds, it derives as much of the metadata as it can</p>
-					<p class="attribution">wikimedia.org CC-BY-3.0</p>
-					<aside class="notes">Vector and Raster data. Programmatic: Title, extent, coordinate reference system, last update date, URI, placeholder: Abstract, contact details, keywords, lineage, update frequency, constraints etc</aside>
+				<section data-background-image="./images/juggling.jpg" alt="cans" class="full" data-background-size="cover">
+					<h3>And this is where we need your help!</h3>
+					<p class="box-right">Help to bridge the gap between tidy specifications and messy reality, by spotting edge cases and improving guidance</p>
+					<p class="attribution" style="color:white">Michael Jastremski, openphoto.net</p>
 				</section>
 
-				<section>
-					<p>Crawler creates a metadata record for each data source it discovers, and a Feature Catalog record for vector data sources.</p>
-					<p>It can insert these records into any Metadata Catalog with a CSW-T (Transactional CSW) endpoint.</p>
-					<aside class="notes">Not just Geonetwork. Feature Catalog for vector attributes. Can update existing records</aside>
+				<section data-background-image="./images/abandoned-fax.jpg" alt="cans" class="full" data-background-size="cover">
+					<h3>For example...</h3>
+					<p class="box-right">Having people willing to question the standard can lead to the removal of outdated elements such as the Fax Number in UK Gemini</p>
+					<p class="attribution" style="color:white">Flickr:reallynuts CC-BY-2.0</p>
 				</section>
 
-				<section data-background-image="./images/excited-puppy.jpg" alt="excited" class="full" data-background-size="cover">
-					<p class="box-left">For UK metadata, we've modified Crawler so that it outputs metadata in Gemini 2.3 format (and ISO19110 for the Feature Catalog)</p>
-					<p class="attribution" style="color:grey">Flickr: Eric Danley CC-BY-2.0</p>
+				<section data-background-image="./images/island-lake-island.jpg" alt="cans" class="full" data-background-size="contain">
+					<h3>Yes, But...</h3>
+					<p class="box-right">and to a recent decision to revise BS7666 in line with modern GIS and addressing needs, such as handling multi-part and doughnut polygons</p>
+					<p class="attribution" style="color:white">citymagazine.si</p>
 				</section>
 
-				<section>
-					<img src="./images/crawler_step_one.png" alt="Crawler Step One"/>
+				<section data-background-image="./images/juggling.jpg" alt="cans" class="full" data-background-size="cover">
+					<h3>Expertise or Interest...</h3>
+					<p class="box-right">...either is useful! Can you be the one who comes up with the guidance that makes a standard really useable?</p>
+					<p class="attribution" style="color:white">Michael Jastremski, openphoto.net</p>
 				</section>
 
-				<section data-background-image="./images/dog_pc.jpg" alt="no human hands" class="full" data-background-size="cover">
-					<p class="box-left">At this stage in proceedings, we have a record for each data source, with some programmatic elements, some placeholder elements, and a linked feature catalog record describing the attributes. Human hands have yet to touch the metadata!</p>
-					<p class="attribution">IMGUR: goldenretrieverbailey</p>
+				<section data-background-image="./images/juggling.jpg" alt="cans" class="full" data-background-size="cover">
+					<h3>Hang On...</h3>
+					<p class="box-right">Could you be the one that points out that a suitable standard already exists?</p>
+					<p class="attribution" style="color:white">Michael Jastremski, openphoto.net</p>
 				</section>
 
-				<section>
-					<img src="./images/placeholder_record.png" alt="Placeholders"/>
+				<section data-background-image="./images/pokemon-boat.jpg" alt="cans" class="full" data-background-size="cover">
+					<h3>But you said "fun" and "useful"...</h3>
+					<p class="box-right">ChatGPT said I should tell you that standards stop pikachu from spawning in the ocean, or that standards allow you to while away your time competing in GeoGuessr</p>
+					<p class="attribution" style="color:white">mic.com</p>
 				</section>
 
-
-				<section>
-					<p>We generate excel spreadsheets with a row per record for data owners to complete the manual fields.</p>
-					<p>This may seem clumsy but excel is well-known and used. Data owners can copy and paste in bulk to populate "their" records quickly and easily.</p>
-					<aside class="notes">Metadata Crawler derives titles using a set of rules (for databases it uses the form <code>Database.Schema.Tablename</code>) so we can use the same when auto-generating the rows in the excel spreadsheet to ensure a match. To ensure we get quality results from this process, we can use controlled text fields for elements where that is appropriate.</aside>
+				<section data-background-image="./images/null-island.jpeg" alt="cans" class="full" data-background-size="cover">
+					<p class="box-right">But I'd prefer to remind you of every geographer's favourite holiday destination</p>
+					<p class="attribution" style="color:white">Medium: Five Guys</p>
+					<aside class="notes">in all seriousness, spatial standards are the secret sauce that make a lot of the fun geo things on your phone work</aside>
 				</section>
 
-				<section>
-					<img src="./images/template.png" alt="Excel template"/>
-				</section>
-
-				<section>
-					<p>We can then use the GeoNetwork API inside a python script to iterate through the csv and update the metadata in the catalog with the unique values</p>
-				</section>
-
-				<section>
-					<img src="./images/crawler_step_two.png" alt="Crawler Step Two"/>
-				</section>
-
-				<section>
-					<p>For extra geek points, and to automate the workflow even more, we can allow people to send the spreadsheet as a csv to an email address associated with an S3 bucket</p>
-					<p>With another bit of python we can extract and validate the csv, then ensure it's ready for the previous script to process</p>
-				</section>
-
-				<section>
-					<img src="./images/crawler_step_three.png" alt="Crawler Step Three"/>
-				</section>
-
-				<section>
-					<p>Using the Talend gui you can configure Crawler to enable/disable parts of the workflow</p>
-					<img src="./images/talend_config.png" alt="Talend Config" width="600"/>
-				</section>
-
-				<section>
-					<p>You can also configure the database, file location, metadata catalog and so on:</p>
-					<img src="./images/talend_contexts.png" alt="Talend Contexts" width="600"/>
-				</section>
-
-				<section>
-					<p>Then Crawler can be exported as a batch file for windows or a shell script for linux, to run as an unattended scheduled task</p>
-					<p>You can override the config at the command line, for example to crawl a different database or use a different metadata catalog</p>
-					<aside class="notes">So while it looks complex, it's a set up once, configure and use many times kind of thing</aside>
-				</section>
-
-				<section data-background-image="./images/engage_guide.jpg" alt="demo alert" class="full" data-background-size="cover">
-					<h3>Demo Alert (If time allows)!</h3>
-					<p class="attribution">Flickr: Bernard Duport CC-BY-SA-2.0</p>
-					<aside class="notes">1: empty geonetwork 2: run shell script 3: placeholders in geonetwork 4: run python 5: completed records</aside>
-				</section>
-
-				<section data-background-image="./images/fly.jpg" alt="fly" class="full" data-background-size="cover">
-					<h3 class="box">Zero to Hero:</h3>
-					<span class="box-right">
-					<p>With some initial setup and configuration we get a system that automatically discovers data sources and creates metadata, and allows data owners to keep them up to date by sending spreadsheets via email with little time-consuming management and editing</p>
-				</span>
-					<p class="attribution" style="color:white">US Airforce</p>
-				</section>
-
-				<section>
-					<h3>Where to find the components</h3>
-					<a target="_blank" href="https://www.talend.com/products/talend-open-studio/">www.talend.com/products/talend-open-studio/</a><br />
-					<a target="_blank" href="https://talend-spatial.github.io/">talend-spatial.github.io/</a><br />
-					<a target="_blank" href="https://github.com/talend-spatial/workspace-metadata-crawler">github.com/talend-spatial/workspace-metadata-crawler</a>
-				</section>
+				
 
 				<section>
 					<h3>Thank You!</h3>
-					<p>Jo Cook, <a href="astuntechnology.com" target="_blank">Astun Technology</a></p>
-					<p><a href="mailto:jocook@astuntechnology.com?subject=Automating Metadata">jocook@astuntechnology.com</a></p>
+					<p><a href="jocook.is" target="_blank">Jo Cook</a></p>
+					<p><a href="mailto:jo@jocook.is?subject=Hello">jo@jocook.is</a></p>
 				</section>
 			
 
@@ -177,7 +133,7 @@
 
 			<div class="fe-persistent-header">
  				<img src=".\images\AstunSmallLogo.png"/>
-			<p style="color:white">Labelling Cans on a Production Line</p>
+			<p style="color:white">Help Make Standards Fun and Useful</p>
 			</div>
 
 		</div>
